@@ -241,6 +241,7 @@
         </form>
         <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" onload="if(submitted) {}"></iframe>
         <script type="text/javascript">var submitted=false;</script>
+        <h5 id="waitMsg" style="display:none;">Sending Your message...Wait for a few seconds.</h5>
     </div>
     <!--Contact Us Ends-->
     <!--Footer-->
@@ -251,9 +252,13 @@
     <script src="dependancies/bootstrap@5.0.0-beta3/dist/js/bootstrap.min.js"></script>
     <script src="/load.js"></script>
     <script>
-        document.getElementById("gform").onsubmit = function (){
-            alert("Thank You. Your message was sent.");
-            location.reload();
+        document.getElementById("FormButton").onclick = function (){
+            document.getElementById("waitMsg").style.display = 'block';
+            setTimeout(function(){
+                document.getElementById("waitMsg").style.display = 'none';
+                alert("Thank You. Your message was sent.");
+                location.reload();
+            }, 5000);
         };
     </script>
 </body>
